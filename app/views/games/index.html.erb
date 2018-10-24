@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome, <%= current_user.name%></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>User</th>
+      <th>Challenger</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    
+    <% @game.each do |game| %>
+      <tr>
+        <td><%= game.place %></td>
+        <td><%= game.date %></td>
+        <td><%= game.time %></td>
+        <td><%= game.user.name %></td>
+        <td><%= User.find(game.challengers[0].user_id).name %></td>
+        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create Game', new_game_path %>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<%= link_to 'Join Game', all_games_path %>
