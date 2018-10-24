@@ -23,7 +23,7 @@
         <td><%= game.date %></td>
         <td><%= game.time %></td>
         <td><%= game.user.name %></td>
-        <td><%= User.find(game.challengers[0].user_id).name %></td>
+        <td><%= game.user.name %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

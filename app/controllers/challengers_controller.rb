@@ -24,8 +24,12 @@ class ChallengersController < ApplicationController
   # POST /challengers
   # POST /challengers.json
   def create
+    # byebug
     @challenger = Challenger.new(challenger_params)
-    @challenger.user_id = current_user.id
+    @challenger.save
+
+    # @challenger.game_id = current_user.id
+    # @challanger.name= User.find(game.challengers[0].user_id).name
 
     respond_to do |format|
       if @challenger.save

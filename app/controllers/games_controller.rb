@@ -5,6 +5,8 @@ class GamesController < ApplicationController
   def index
     # @games = Game.all
     @game = User.find(current_user.id).games
+    
+    # @challenger = User.find(user.challengers[0][:user_id]).name
   end
 
   # GET /games/1
