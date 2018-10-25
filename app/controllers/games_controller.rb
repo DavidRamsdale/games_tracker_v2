@@ -2,11 +2,13 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   # GET /games
   # GET /games.json
+
+  #Home page
   def index
-    # @games = Game.all
+    #This method is for showing all of the games the user created.
     @game = User.find(current_user.id).games
-    
-    # @challenger = User.find(user.challengers[0][:user_id]).name
+    #This gives us the challengers created.
+    @challenger_all = Challenger.all
   end
 
   # GET /games/1
@@ -14,6 +16,7 @@ class GamesController < ApplicationController
   def show
   end
 
+  # This shows the user all of the games that he did not post.
   def all
     @games = Game.all - User.find(current_user.id).games
   end

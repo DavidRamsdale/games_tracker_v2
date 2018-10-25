@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @challenger.user %>
+  <%= @challenger.user.name %>
 </p>
 
 <p>
   <strong>Game:</strong>
-  <%= @challenger.game %>
+  <%= @challenger.game.id %>
 </p>
 
 <%= link_to 'Edit', edit_challenger_path(@challenger) %> |

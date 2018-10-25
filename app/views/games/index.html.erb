@@ -4,6 +4,8 @@
 
 <table>
   <thead>
+    <h2>My Created Games</h2>
+
     <tr>
       <th>Place</th>
       <th>Date</th>
@@ -16,7 +18,7 @@
 
   <tbody>
 
-    
+        
     <% @game.each do |game| %>
       <tr>
         <td><%= game.place %></td>
@@ -31,6 +33,42 @@
     <% end %>
   </tbody>
 </table>
+
+<table>
+  <thead>
+ <thead>
+    <h2>My Joined Games</h2>
+
+    <tr>
+      <th>Place</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Challenger</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @challenger_all.each do |challenger| %>
+
+    <%if challenger.user_id == current_user.id then %> 
+      <%@all_game = Game.find(challenger.game_id)%>
+      <tr>
+        <td><%= @all_game.place %></td>
+        <td><%= @all_game.date %></td>
+        <td><%= @all_game.time %></td>
+        <td><%= @all_game.user.name %></td>
+        <td><%= link_to 'Show', challenger %></td>
+        <td><%= link_to 'Edit', edit_game_path(challenger) %></td>
+        <td><%= link_to 'Destroy', challenger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <%end%>
+    <%end%>
+   
+  </tbody>
+</table>
+
 
 <br>
 
