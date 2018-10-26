@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   def index
     #This method is for showing all of the games the user created.
     @game = User.find(current_user.id).games
-    #This gives us the challengers created.
+    #This gives us the challengers created.ra
     @challenger_all = Challenger.all
   end
 
@@ -18,7 +18,8 @@ class GamesController < ApplicationController
 
   # This shows the user all of the games that he did not post.
   def all
-    @games = Game.all - User.find(current_user.id).games
+    @games = Game.all - Game.joins(:challengers) - User.find(current_user.id).games
+
   end
 
   # GET /games/new
