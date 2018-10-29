@@ -16,7 +16,7 @@ class GamesController < ApplicationController
   def show
   end
 
-  # This shows the user all of the games that he did not post.
+  # This shows the user all of the games created by other users that are free to join.
   def all
     @games = Game.all - Game.joins(:challengers) - User.find(current_user.id).games
 
