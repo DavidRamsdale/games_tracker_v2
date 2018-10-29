@@ -7,6 +7,11 @@ class ScoresController < ApplicationController
     @scores = Score.all
   end
 
+  def winner
+    byebug
+  end
+
+
   # GET /scores/1
   # GET /scores/1.json
   def show

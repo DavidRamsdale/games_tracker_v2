@@ -7,12 +7,12 @@
 
 <p>
   <strong>Game:</strong>
-  <%= @score.game %>
+  <%= @score.game.id %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @score.user %>
+  <%= @score.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_score_path(@score) %> |
