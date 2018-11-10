@@ -1,5 +1,9 @@
 # README
 
+## About ##
+
+This app was created to help keep track of the scores of everyone in my class.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
